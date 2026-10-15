@@ -1,6 +1,10 @@
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Record {
+public class Record implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
 //    - 借阅人姓名
     String    borrowerName;
@@ -12,7 +16,7 @@ public class Record {
     LocalDate borrowDate;
 
 //- 应还日期
-    LocalDate dueDate = borrowDate.plusDays(14);
+    LocalDate dueDate;
 
 //- 实际归还日期
     LocalDate actualReturnDate;
@@ -31,6 +35,7 @@ public class Record {
         this.borrowerName = borrowerName;
         this.bookName = bookName;
         this.borrowDate = LocalDate.now();
+        this.dueDate = this.borrowDate.plusDays(14);
     }
 
     public String getBorrowerName() {

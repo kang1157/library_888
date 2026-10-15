@@ -1,4 +1,9 @@
-public class Role {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Role implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     String name;
     int role;//1:admin 2:user
 
